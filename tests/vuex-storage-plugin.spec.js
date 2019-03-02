@@ -7,11 +7,17 @@ const Vue = createLocalVue();
 
 Vue.use(Vuex);
 
+let globalStorage;
+
 function newStore() {
   return new Vuex.Store({
     plugins: [new VuexStoragePlugin({
       prefix: 'Test',
-      storage: new MockStorage()
+      storage: globalStorage
     })]
   });
+}
+
+function clearGlobalStorage() {
+  globalStorage = new MockStorage();
 }
