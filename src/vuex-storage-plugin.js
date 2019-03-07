@@ -1,6 +1,16 @@
 const IS_FROM_MODULE = /\//;
+const DEFAULT_REDUCER = value => value;
+const DEFAULT_VALUE = null;
 
-export default function VuexStoragePlugin(options) {
+export default function VuexStoragePlugin(options = {}) {
+  const prefix = options.prefix || 'vuex';
+  const storage = options.storage;
+  const removeIfNull = options.removeIfNull != null ? options.removeIfNull : true;
+
+  if (storage == null || storage.setItem == null || storage.getItem == null || storage.removeItem == null) {
+    throw new Error('You must provide a storage containing the methods: setItem, getItem and removeItem.');
+  }
+
   const watcherMap = new Map();
 
   buildPopulate(options.populate);
@@ -16,6 +26,16 @@ export default function VuexStoragePlugin(options) {
 
     function registerModule(path, module, options) {
       store._registerModule(path, module, options);
+
+      buildPopulate(module.populate);
+
+      const modulePopulateItems = buildPopulate(module.populate);
+
+      populateState(store._modules.root.state, modulePopulateItems.keys());
+
+      if (typeof module.afterPopulate === 'function') {
+        module.afterPopulate(module.namespaced ? store._modulesNamespaceMap[path].context : store);
+      }
     }
   };
 
@@ -23,50 +43,90 @@ export default function VuexStoragePlugin(options) {
     let current = keysIterator.next();
     while (current.done === false) {
       const item = watcherMap.get(current.value);
-      let value = sessionStorage.getItem(item.parsedKey);
+      let value = storage.getItem(item.parsedKey);
 
 
       try {
         const a = JSON.parse(value);
         value = a;
-      } catch (e) {}
+      } catch (e) {
+      }
 
-      setValueToState(state, item.attr, value);
+      setValueToState(state, item, value);
       current = keysIterator.next();
     }
   }
 
-  function mutationSubscription({ type, payload }, state) {
+  function mutationSubscription({ type, payload }) {
     const watchKey = buildKey(type);
 
     if (watcherMap.has(watchKey)) {
       const item = watcherMap.get(watchKey);
-      options.storage.setItem(item.parsedKey, JSON.stringify(payload));
+      payload = item.reduce(payload);
+      if (payload == null && removeIfNull) {
+        storage.removeItem(item.parsedKey);
+      } else {
+        storage.setItem(item.parsedKey, stringify(payload));
+      }
     }
   }
 
-  function buildPopulate(populate) {
-    if (Array.isArray(populate)) {
-      populate.forEach(obj => {
-        obj.parsedKey = buildKey(obj.attr);
-      watcherMap.set(buildKey(obj.mutation), obj);
-    });
+  function stringify(value) {
+    if (value == null) {
+      return null;
     }
+    if (typeof value === 'string') {
+      return value;
+    }
+    return JSON.stringify(value);
+  }
+
+  function buildPopulate(populate, moduleName) {
+    const builded = new Map();
+    if (Array.isArray(populate)) {
+      populate.forEach(item => {
+        if (typeof item === 'string') {
+          item = {
+            attr: item,
+            mutation: item,
+            reduce: DEFAULT_REDUCER,
+            default: DEFAULT_VALUE
+          };
+        } else {
+          if (item.reduce == null) {
+            item.reduce = DEFAULT_REDUCER;
+          }
+
+          if (item.default == null) {
+            item.default = DEFAULT_VALUE;
+          }
+        }
+        item.parsedKey = buildKey(item.attr);
+        builded.set(buildKey(item.mutation), item);
+        watcherMap.set(buildKey(item.mutation), item);
+      });
+    }
+    return builded;
   }
 
   function buildKey(...keys) {
-    return `${options.prefix}/${keys.join("/")}`;
+    keys.unshift(prefix);
+    return keys.join('/');
   }
 
-  function setValueToState(state, key, value) {
-    if (IS_FROM_MODULE.test(key)) {
-      key = key.split(IS_FROM_MODULE);
-      const attr = key.pop();
+  function setValueToState(state, item, value) {
+    let key = item.attr;
+    if (IS_FROM_MODULE.test(item.attr)) {
+      const itemAttr = key.split(IS_FROM_MODULE);
+      const attr = itemAttr.pop();
       let module = state;
-      key.forEach(path => (module = module[path]));
-      module[attr] = value;
-    } else {
-      state[key] = value;
+      itemAttr.forEach(path => (module = module[path]));
+      state = module;
+      key = attr;
     }
+    if (value == null) {
+      value = item.default;
+    }
+    state[key] = value;
   }
 }

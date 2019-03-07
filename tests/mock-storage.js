@@ -16,4 +16,8 @@ export default class MockStorage {
     return this.storage.delete(key);
   }
 
+  clear() {
+    this.storage.clear();
+  }
+
 }

@@ -10,7 +10,6 @@ export default {
   },
   mutations: {
     setUnnamedModuleAttr(state, value) {
-      console.log(state);
       state.unnamedModuleAttr = value;
     }
   }
