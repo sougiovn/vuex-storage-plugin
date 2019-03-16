@@ -20,4 +20,8 @@ export default class MockStorage {
     this.storage.clear();
   }
 
+  keys() {
+    return this.storage.keys();
+  }
+
 }

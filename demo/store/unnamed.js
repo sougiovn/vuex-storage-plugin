@@ -1,7 +1,8 @@
 export default {
   populate: [
     {
-      attr: 'UnnamedModule/unnamedModuleAttr',
+      module: 'UnnamedModule',
+      attr: 'unnamedModuleAttr',
       mutation: 'setUnnamedModuleAttr'
     }
   ],

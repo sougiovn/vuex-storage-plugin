@@ -2,8 +2,8 @@ export default {
   namespaced: true,
   populate: [
     {
-      attr: 'NamedDynamicModule/namedDynamicModuleAttr',
-      mutation: 'NamedDynamicModule/setNamedDynamicModuleAttr'
+      attr: 'namedDynamicModuleAttr',
+      mutation: 'setNamedDynamicModuleAttr'
     }
   ],
   state: {

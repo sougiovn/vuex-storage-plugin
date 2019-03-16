@@ -2,8 +2,9 @@ export default {
   namespaced: true,
   populate: [
     {
-      attr: 'NamedModule/namedModuleAttr',
-      mutation: 'NamedModule/setNamedModuleAttr'
+      module: 'NamedModule',
+      attr: 'namedModuleAttr',
+      mutation: 'setNamedModuleAttr'
     }
   ],
   state: {

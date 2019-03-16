@@ -55,6 +55,18 @@
       Named Dynamic Module
     </button>
 
+    <button
+      type="button"
+      @click="toggleNestedUnnamedDynamicModule">
+      Nested Unnamed Dynamic Module
+    </button>
+
+    <button
+      type="button"
+      @click="toggleNestedNamedDynamicModule">
+      Nested Named Dynamic Module
+    </button>
+
     <fieldset v-if="unnamedDynamic">
       <legend>Unnamed dynamic module</legend>
       <input
@@ -62,8 +74,7 @@
         v-model="newUnnamedDynamicModuleAttr" />
       <button
         type="button"
-        @click="$store.commit('setUnnamedDynamicModuleAttr', newUnnamedDynamicModuleAttr)">Update
-                                                                                           unnamedDynamicModuleAttr
+        @click="$store.commit('setUnnamedDynamicModuleAttr', newUnnamedDynamicModuleAttr)">Update unnamedDynamicModuleAttr
       </button>
       <pre>unnamedDynamicModuleAttr: {{ $store.state.UnnamedDynamicModule.unnamedDynamicModuleAttr }}</pre>
     </fieldset>
@@ -75,10 +86,36 @@
         v-model="newNamedDynamicModuleAttr" />
       <button
         type="button"
-        @click="$store.commit('NamedDynamicModule/setNamedDynamicModuleAttr', newNamedDynamicModuleAttr)">Update
-                                                                                                          namedDynamicModuleAttr
+        @click="$store.commit('NamedDynamicModule/setNamedDynamicModuleAttr', newNamedDynamicModuleAttr)">
+        Update namedDynamicModuleAttr
       </button>
       <pre>namedDynamicModuleAttr: {{ $store.state.NamedDynamicModule.namedDynamicModuleAttr }}</pre>
+    </fieldset>
+
+    <fieldset v-if="nestedUnnamedDynamic">
+      <legend>Nested Unnamed dynamic module</legend>
+      <input
+        type="text"
+        v-model="newNestedUnnamedDynamicModuleAttr" />
+      <button
+        type="button"
+        @click="$store.commit('setNestedUnnamedDynamicModuleAttr', newNestedUnnamedDynamicModuleAttr)">
+        Update nestedUnnamedDynamicModuleAttr
+      </button>
+      <pre>nestedUnnamedDynamicModuleAttr: {{ $store.state['bacon/NestedUnnamedDynamicModule'].nestedUnnamedDynamicModuleAttr }}</pre>
+    </fieldset>
+    
+    <fieldset v-if="nestedNamedDynamic">
+      <legend>Nested Named dynamic module</legend>
+      <input
+        type="text"
+        v-model="newNestedNamedDynamicModuleAttr" />
+      <button
+        type="button"
+        @click="$store.commit('bacon/NestedNamedDynamicModule/setNestedNamedDynamicModuleAttr', newNestedNamedDynamicModuleAttr)">
+        Update nestedNamedDynamicModuleAttr
+      </button>
+      <pre>nestedNamedDynamicModuleAttr: {{ $store.state['bacon/NestedNamedDynamicModule'].nestedNamedDynamicModuleAttr }}</pre>
     </fieldset>
   </div>
 </template>
@@ -87,6 +124,8 @@
   import { mapMutations, mapState } from 'vuex';
   import unnamedDynamicModule from './store/unnamed-dynamic';
   import namedDynamicModule from './store/named-dynamic';
+  import nestedNamedDynamicModule from './store/nested-named-dynamic';
+  import nestedUnnamedDynamicModule from './store/nested-unnamed-dynamic';
 
   export default {
     name: 'Demo',
@@ -100,7 +139,9 @@
       ...mapMutations(['setGlobalAttr', 'setUnnamedModuleAttr']),
       ...mapMutations('NamedModule', ['setNamedModuleAttr']),
       toggleUnnamedDynamicModule,
-      toggleNamedDynamicModule
+      toggleNamedDynamicModule,
+      toggleNestedNamedDynamicModule,
+      toggleNestedUnnamedDynamicModule
     }
   };
 
@@ -112,7 +153,11 @@
       unnamedDynamic: false,
       newUnnamedDynamicModuleAttr: null,
       namedDynamic: false,
-      newNamedDynamicModuleAttr: null
+      newNamedDynamicModuleAttr: null,
+      nestedNamedDynamic: false,
+      newNestedNamedDynamicModuleAttr: null,
+      nestedUnnamedDynamic: false,
+      newNestedUnnamedDynamicModuleAttr: null
     };
   }
 
@@ -132,5 +177,23 @@
       this.$store.registerModule('NamedDynamicModule', namedDynamicModule);
     }
     this.namedDynamic = !this.namedDynamic;
+  }
+
+  function toggleNestedUnnamedDynamicModule() {
+    if (this.nestedUnnamedDynamic) {
+      this.$store.unregisterModule('bacon/NestedUnnamedDynamicModule');
+    } else {
+      this.$store.registerModule('bacon/NestedUnnamedDynamicModule', nestedUnnamedDynamicModule);
+    }
+    this.nestedUnnamedDynamic = !this.nestedUnnamedDynamic;
+  }
+
+  function toggleNestedNamedDynamicModule() {
+    if (this.nestedNamedDynamic) {
+      this.$store.unregisterModule('bacon/NestedNamedDynamicModule');
+    } else {
+      this.$store.registerModule('bacon/NestedNamedDynamicModule', nestedNamedDynamicModule);
+    }
+    this.nestedNamedDynamic = !this.nestedNamedDynamic;
   }
 </script>

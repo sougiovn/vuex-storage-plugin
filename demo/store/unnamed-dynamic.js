@@ -1,7 +1,7 @@
 export default {
   populate: [
     {
-      attr: 'UnnamedDynamicModule/unnamedDynamicModuleAttr',
+      attr: 'unnamedDynamicModuleAttr',
       mutation: 'setUnnamedDynamicModuleAttr'
     }
   ],
