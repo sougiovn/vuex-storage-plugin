@@ -31,8 +31,16 @@ export default function VuexStoragePlugin(options = {}) {
       populateState(store._modules.root.state, modulePopulateItems.keys());
 
       if (typeof module.afterPopulate === 'function') {
-        module.afterPopulate(module.namespaced ? store._modulesNamespaceMap[path].context : store);
+        if (module.namespaced) {
+          module.afterPopulate(store._modulesNamespaceMap[`${path}/`].context, store);
+        } else {
+          module.afterPopulate(store);
+        }
       }
+    }
+
+    if (typeof options.afterPopulate === 'function') {
+      options.afterPopulate(store);
     }
 
     function populateState(state, keysIterator) {

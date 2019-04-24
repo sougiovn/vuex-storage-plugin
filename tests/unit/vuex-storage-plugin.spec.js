@@ -168,6 +168,19 @@ describe('VuexStoragePlugin', () => {
         ...UnnamedModule
       };
 
+      it('Should invoke afterPopulate passing the rootStore as unique parameter', () => {
+        const afterPopulate = jest.fn();
+
+        const store = newStore(AttrEqualsMutationStoreConfig, {
+          populate: ['attr'],
+          afterPopulate
+        });
+
+        expect(afterPopulate.mock.calls.length).toBe(1);
+        expect(afterPopulate.mock.calls[0].length).toBe(1);
+        expect(afterPopulate.mock.calls[0][0]).toBe(store);
+      });
+
       describe('Unnamed module', () => {
         it('should persist module state attr', () => {
           const store = newStore({
@@ -282,6 +295,21 @@ describe('VuexStoragePlugin', () => {
 
           expect(store.state.UnnamedModule.attr).toBe('bacon');
         });
+
+        it('Should invoke afterPopulate passing the rootStore as unique parameter', () => {
+          const afterPopulate = jest.fn();
+
+          const store = newStore();
+
+          store.registerModule('UnnamedModule', {
+            ...UnnamedModule,
+            afterPopulate
+          });
+
+          expect(afterPopulate.mock.calls.length).toBe(1);
+          expect(afterPopulate.mock.calls[0].length).toBe(1);
+          expect(afterPopulate.mock.calls[0][0]).toBe(store);
+        });
       });
 
       describe('Named module', () => {
@@ -305,6 +333,25 @@ describe('VuexStoragePlugin', () => {
           store.registerModule('NamedModule', NamedModule);
 
           expect(store.state.NamedModule.attr).toBe('bacon');
+        });
+
+        it('Should invoke afterPopulate passing the module as firts parameter and rootStore as second parameter', () => {
+          const afterPopulate = jest.fn();
+
+          const store = newStore();
+
+          store.registerModule('NamedModule', {
+            ...NamedModule,
+            afterPopulate
+          });
+
+          expect(afterPopulate.mock.calls.length).toBe(1);
+          expect(afterPopulate.mock.calls[0].length).toBe(2);
+          expect(afterPopulate.mock.calls[0][0]).toHaveProperty('dispatch');
+          expect(afterPopulate.mock.calls[0][0]).toHaveProperty('commit');
+          expect(afterPopulate.mock.calls[0][0]).toHaveProperty('getters');
+          expect(afterPopulate.mock.calls[0][0]).toHaveProperty('state');
+          expect(afterPopulate.mock.calls[0][1]).toBe(store);
         });
       });
 
