@@ -182,7 +182,7 @@ describe('VuexStoragePlugin', () => {
       });
 
       describe('Unnamed module', () => {
-        it('should persist module state attr', () => {
+        it.only('should persist module state attr', () => {
           const store = newStore({
             modules: {
               UnnamedModule
@@ -362,7 +362,7 @@ describe('VuexStoragePlugin', () => {
 
             store.registerModule('bacon/UnnamedModule', UnnamedModule);
 
-            expect(mockStorage.getItem('vuex/UnnamedModule/attr')).toBeUndefined();
+            expect(mockStorage.getItem('vuex/bacon/UnnamedModule/attr')).toBeUndefined();
 
             store.commit('attr', 'bacon');
 

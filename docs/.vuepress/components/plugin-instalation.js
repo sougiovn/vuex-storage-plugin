@@ -22,3 +22,4 @@ store.registerModule('DynamicModule', {
   ...,
   populate: [],
   afterPopulate: () => {}
+});
