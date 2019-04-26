@@ -6,7 +6,7 @@ module.exports = {
       lang: 'en-US',
       description: 'Easy and simple to use Vuex\'s storage plugin'
     },
-    '/pt-br/': {
+    '/pt-BR/': {
       lang: 'pt-BR',
       description: 'Plugin de Storage para Vuex, simples e de fácil usar'
     }
@@ -16,6 +16,14 @@ module.exports = {
     displayAllHeaders: true,
     nav: [
       {
+        text: 'Doc',
+        link: 'doc'
+      },
+      {
+        text: 'Demo',
+        link: 'demo'
+      },
+      {
         text: 'Languages',
         items: [
           {
@@ -24,7 +32,7 @@ module.exports = {
           },
           {
             text: 'Português brasileiro',
-            link: '/pt-br/'
+            link: '/pt-BR/'
           }
         ]
       }
@@ -34,7 +42,7 @@ module.exports = {
         selectText: 'Languages',
         label: 'English'
       },
-      '/pt-br/': {
+      '/pt-BR/': {
         selectText: 'Languages',
         label: 'Português brasileiro'
       }

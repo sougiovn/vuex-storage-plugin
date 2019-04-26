@@ -11,10 +11,6 @@ const vuexStoragePluginConfig = {
 
 const store = new Vuex.Store({
   plugins: [new VuexStoragePlugin(vuexStoragePluginConfig)],
-  modules: {
-    UnnamedModule,
-    NamedModule,
-  },
   state() {
     return {
       attr: null

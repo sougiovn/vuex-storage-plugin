@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import VuexStoragePlugin from '@/vuex-storage-plugin';
+import VuexStoragePlugin from './../../../../src/vuex-storage-plugin';
 import UnnamedModule from './unnamed';
 import NamedModule from './named';
 
@@ -9,7 +9,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   plugins: [
     new VuexStoragePlugin({
-      prefix: 'MeuApp',
+      prefix: 'Demo',
       storage: sessionStorage,
       populate: [
         {

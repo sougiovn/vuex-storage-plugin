@@ -9,7 +9,8 @@
         type="button"
         @click="setGlobalAttr(newGlobalAttr)">Update globalAttr
       </button>
-      <pre>globalAttr: {{ globalAttr }}</pre>
+      <br />
+      <code>globalAttr: {{ globalAttr }}</code>
     </fieldset>
 
     <hr />
@@ -23,7 +24,8 @@
         type="button"
         @click="setUnnamedModuleAttr(newUnnamedModuleAttr)">Update unnamedModuleAttr
       </button>
-      <pre>unnamedModuleAttr: {{ unnamedModuleAttr }}</pre>
+      <br />
+      <code>unnamedModuleAttr: {{ unnamedModuleAttr }}</code>
     </fieldset>
 
     <hr />
@@ -37,7 +39,8 @@
         type="button"
         @click="setNamedModuleAttr(newNamedModuleAttr)">Update namedModuleAttr
       </button>
-      <pre>namedModuleAttr: {{ namedModuleAttr }}</pre>
+      <br />
+      <code>namedModuleAttr: {{ namedModuleAttr }}</code>
     </fieldset>
 
     <hr />
@@ -76,7 +79,8 @@
         type="button"
         @click="$store.commit('setUnnamedDynamicModuleAttr', newUnnamedDynamicModuleAttr)">Update unnamedDynamicModuleAttr
       </button>
-      <pre>unnamedDynamicModuleAttr: {{ $store.state.UnnamedDynamicModule.unnamedDynamicModuleAttr }}</pre>
+      <br />
+      <code>unnamedDynamicModuleAttr: {{ $store.state.UnnamedDynamicModule.unnamedDynamicModuleAttr }}</code>
     </fieldset>
 
     <fieldset v-if="namedDynamic">
@@ -89,7 +93,8 @@
         @click="$store.commit('NamedDynamicModule/setNamedDynamicModuleAttr', newNamedDynamicModuleAttr)">
         Update namedDynamicModuleAttr
       </button>
-      <pre>namedDynamicModuleAttr: {{ $store.state.NamedDynamicModule.namedDynamicModuleAttr }}</pre>
+      <br />
+      <code>namedDynamicModuleAttr: {{ $store.state.NamedDynamicModule.namedDynamicModuleAttr }}</code>
     </fieldset>
 
     <fieldset v-if="nestedUnnamedDynamic">
@@ -102,7 +107,8 @@
         @click="$store.commit('setNestedUnnamedDynamicModuleAttr', newNestedUnnamedDynamicModuleAttr)">
         Update nestedUnnamedDynamicModuleAttr
       </button>
-      <pre>nestedUnnamedDynamicModuleAttr: {{ $store.state['bacon/NestedUnnamedDynamicModule'].nestedUnnamedDynamicModuleAttr }}</pre>
+      <br />
+      <code>nestedUnnamedDynamicModuleAttr: {{ $store.state['bacon/NestedUnnamedDynamicModule'].nestedUnnamedDynamicModuleAttr }}</code>
     </fieldset>
     
     <fieldset v-if="nestedNamedDynamic">
@@ -115,12 +121,14 @@
         @click="$store.commit('bacon/NestedNamedDynamicModule/setNestedNamedDynamicModuleAttr', newNestedNamedDynamicModuleAttr)">
         Update nestedNamedDynamicModuleAttr
       </button>
-      <pre>nestedNamedDynamicModuleAttr: {{ $store.state['bacon/NestedNamedDynamicModule'].nestedNamedDynamicModuleAttr }}</pre>
+      <br />
+      <code>nestedNamedDynamicModuleAttr: {{ $store.state['bacon/NestedNamedDynamicModule'].nestedNamedDynamicModuleAttr }}</code>
     </fieldset>
   </div>
 </template>
 
 <script>
+  import store from './store';
   import { mapMutations, mapState } from 'vuex';
   import unnamedDynamicModule from './store/unnamed-dynamic';
   import namedDynamicModule from './store/named-dynamic';
@@ -129,6 +137,7 @@
 
   export default {
     name: 'Demo',
+    store,
     data,
     computed: {
       ...mapState(['globalAttr']),
