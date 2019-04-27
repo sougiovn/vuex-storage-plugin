@@ -105,24 +105,6 @@ describe('VuexStoragePlugin', () => {
 
         expect(store.state.attr).toBe('bacon');
       });
-
-      it('should use reduce function before persist value into storage', () => {
-        const store = newStore(CustomStateAttrAndMutationStoreConfig, {
-          populate: [{
-            attr: 'attr',
-            mutation: 'setAttr',
-            reduce(value) {
-              return `${value} is love`;
-            }
-          }]
-        });
-
-        expect(mockStorage.getItem('vuex/attr')).toBeUndefined();
-
-        store.commit('setAttr', 'bacon');
-
-        expect(mockStorage.getItem('vuex/attr')).toBe('bacon is love');
-      });
     });
 
     describe('RemoveIfNull configuration', () => {
@@ -182,7 +164,7 @@ describe('VuexStoragePlugin', () => {
       });
 
       describe('Unnamed module', () => {
-        it.only('should persist module state attr', () => {
+        it('should persist module state attr', () => {
           const store = newStore({
             modules: {
               UnnamedModule

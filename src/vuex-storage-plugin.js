@@ -1,4 +1,3 @@
-const DEFAULT_REDUCER = value => value;
 const DEFAULT_VALUE = null;
 
 export default function VuexStoragePlugin(options = {}) {
@@ -66,7 +65,6 @@ export default function VuexStoragePlugin(options = {}) {
 
       if (watcherMap.has(watchKey)) {
         const item = watcherMap.get(watchKey);
-        payload = item.reduce(payload);
         if (payload == null && removeIfNull) {
           storage.removeItem(item.parsedKey);
         } else {
@@ -94,16 +92,11 @@ export default function VuexStoragePlugin(options = {}) {
               module: moduleName,
               attr: item,
               mutation: item,
-              reduce: DEFAULT_REDUCER,
               default: DEFAULT_VALUE
             };
           } else {
             if (moduleName) {
               item.module = moduleName;
-            }
-
-            if (item.reduce == null) {
-              item.reduce = DEFAULT_REDUCER;
             }
 
             if (item.default == null) {

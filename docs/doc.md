@@ -2,20 +2,29 @@
 home: false
 sidebarDepth: 2
 sidebar: auto
+title: Documentação
 ---
 
-# Por que o Vuex Storage Plugin?
+## Que é Vuex Storage Plugin e por quê?
 
-Quando precisei de um plugin para armazenar os estados da minha aplicação em sessionStorage não encontrei um plugin simples de usar, fácil de aprender e que se encaixa-se à minha aplicação sem grandes alterações nela.
-Precisava que o plugin armazena-se apenas alguns atributos de estados nomeados de módulos dinâmicos e não encontrei nada do tipo ou pelo menos a documentação não me ajudou muito.
+### O que é?
+Vuex Storage Plugin é um plugin para Vuex para persistir dados de sua store no localStorage, 
+sessionStorage e etc. 
 
-# Instalação
+### Por que?
+Quando precisei armazenar alguns dados da minha store no
+sessionStorage não encontrei nenhum plugin simples de usar, fácil de aprender e que se 
+encaixa-se à minha aplicação sem grandes alterações nela.
+Precisava que o plugin armazena-se apenas alguns atributos de módulos  
+dinâmicos e não encontrei nada do tipo ou pelo menos a documentação não me ajudou muito.
+
+## Instalação
 
 ```
 npm install --save vuex-storage-plugin
 ```
 
-# Configuração
+## Configuração
 
 <<<@/docs/.vuepress/components/plugin-instalation.js
 
@@ -81,22 +90,44 @@ do atributo e mutation.
 
 Usando objetos você não é obrigado você não é obrigado a definir o nome da mutation igual 
 ao nome do atributo, fornece o módulo a ser trabalhado além de poder definir um valor 
-`default` para quando o plugin for buscar os dados no storage ao montar o state e usar 
-uma função `reduce` para tratar o dado antes de persisti-lo.
+`default` para quando o plugin for buscar os dados no storage ao montar o state.
 
+#### Interface do objeto esperado
 ```ts
 {
   module: string,
   attr: string,
   mutation: string,
-  default: any,
-  reduce: function(value: string): string
+  default: any
 }
 ```
+|Atributo|Descrição|
+|--------|---------|
+|module|Nome do módulo que o atributo pertence. Não importa se é nomeado ou não, se não for dinâmico tem de colocar o módulo|
+|attr|Nome do atributo que deseja persistir no storage|
+|mutation|Nome do mutation a ser observado para persistir na store*|
+|default|Valor a ser atribuído quando não existe valor no storage, o valor `default` é `null`|
 
-&ast;&ast;&ast;
-```ts
-function(rootStore); // static or unnamed modules
-function(moduleStore, rootStore); // dynamic and named modules
-```
+::: warning Atenção
+É persistido no storage o valor passado como parâmetro para a mutation. 
+Caso o valor seja "processado" dentro da mutation, isso não é visível para o plugin. 
+
+<<<@/docs/.vuepress/components/mutation-example.js{22,28}
+
+O valor persistido será `"love"`, não `"bacon is love"`
+:::
+
 ## afterPopulate
+
+Caso você deseje realizar alguma lógica após receber os dados do storage, 
+o `afterPopulate` tem a proposta de ser um `hook` chamado após os dados serem restaurados do storage e 
+inseridos no store.
+
+Existem duas assinaturas de método para esse `hook`:
+1. Estático raíz e módulos dinâmicos não nomeados, executado após criação da store raíz
+2. Módulo dinâmico e nomeado, executado ao registrar um novo módulo
+
+```ts
+function(rootStore); // static and unnamed modules
+function(moduleStore, rootStore); // dynamic modules
+```
