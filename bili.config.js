@@ -1,5 +1,5 @@
 module.exports = {
-  input: 'src/lib.js',
+  input: 'src/vuex-storage-plugin.js',
   format: ['umd', 'umd-min', 'cjs', 'es'],
   filename: 'vuex-storage-plugin[suffix].js'
 };
