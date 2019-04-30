@@ -18,7 +18,7 @@ module.exports = {
   testURL: 'http://localhost/',
   collectCoverage: false,
   collectCoverageFrom: [
-    'src/**/*.{js}',
+    'src/**/*.js',
     '!**/node_modules/**',
     '!**/vendor/**'
   ],
