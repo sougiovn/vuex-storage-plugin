@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "v8.12.0"
+  - "9.9.0"
+  - "node"
+sudo: false
+cache:
+  - "node_modules"
+script:
+  - npm run test
+after_script:
+  - npm run coveralls
