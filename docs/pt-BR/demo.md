@@ -9,7 +9,9 @@ sidebar: auto
 Atualize os valores dos states e verifique o sessionStorage do seu 
 navegador, tente recarregar a página.
 
-<Demo />
+<ClientOnly>
+  <Demo />
+</ClientOnly>
 
 ## Código fonte
 

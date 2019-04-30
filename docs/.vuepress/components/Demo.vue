@@ -111,7 +111,7 @@
       <br />
       <code>nestedUnnamedDynamicModuleAttr: {{ $store.state['bacon/NestedUnnamedDynamicModule'].nestedUnnamedDynamicModuleAttr }}</code>
     </fieldset>
-    
+
     <fieldset v-if="nestedNamedDynamic">
       <legend>Nested Named dynamic module</legend>
       <input

@@ -9,7 +9,9 @@ sidebar: auto
 Update the state's values and check your browser's sessionStorage, 
 try refreshing the page.
 
-<Demo />
+<ClientOnly>
+  <Demo />
+</ClientOnly>
 
 ## Source code
 
