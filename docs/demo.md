@@ -6,38 +6,41 @@ sidebar: auto
 
 # Demo
 
+Update the state's values and check your browser's sessionStorage, 
+try refreshing the page.
+
 <Demo />
 
-## Código fonte
+## Source code
 
-### Componente
+### Component
 
 <<<@/docs/.vuepress/components/Demo.vue
 
-### Configuração do Vuex
+### Vuex's configuration
 
 <<<@/docs/.vuepress/components/store/index.js
 
-### Módulo Unnamed
+### Unnamed module
 
 <<<@/docs/.vuepress/components/store/unnamed.js
 
-### Módulo Named
+### Named module
 
 <<<@/docs/.vuepress/components/store/named.js
 
-### Módulo Unnamed Dinâmico
+### Unnamed dynamic module
 
 <<<@/docs/.vuepress/components/store/unnamed-dynamic.js
 
-### Módulo Named Dinâmico
+### Named dynamic module
 
 <<<@/docs/.vuepress/components/store/named-dynamic.js
 
-### Módulo Unnamed Aninhado Dinâmico
+### Unnamed nested dynamic module
 
 <<<@/docs/.vuepress/components/store/nested-unnamed-dynamic.js
 
-### Módulo Named Aninhado Dinâmico
+### Named nested dynamic module
 
 <<<@/docs/.vuepress/components/store/nested-named-dynamic.js

@@ -6,6 +6,9 @@ sidebar: auto
 
 # Demo
 
+Atualize os valores dos states e verifique o sessionStorage do seu 
+navegador, tente recarregar a página.
+
 <Demo />
 
 ## Código fonte

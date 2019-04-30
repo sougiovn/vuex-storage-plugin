@@ -45,7 +45,8 @@
 
     <hr />
 
-    <h5>Dynamic modules</h5>
+    <h5>Toogle - Dynamic modules</h5>
+
     <button
       type="button"
       @click="toggleUnnamedDynamicModule">

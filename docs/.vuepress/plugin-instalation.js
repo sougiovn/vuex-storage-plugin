@@ -4,6 +4,7 @@ import VuexStoragePlugin from 'vuex-storage-plugin';
 
 Vue.use(Vuex);
 
+// rootState and static modules configuration
 const vuexStoragePluginConfig = {
   prefix: 'vuex',
   storage: {},
@@ -18,6 +19,7 @@ const store = new Vuex.Store({
 
 ...
 
+// dynamic modules configuration
 store.registerModule('DynamicModule', {
   ...,
   populate: [],
