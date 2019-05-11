@@ -6,8 +6,8 @@
   "scripts": {
     "serve": "poi demo/demo.js --serve",
     "build": "del dist && bili",
-    "test": "cross-env NODE_ENV=test && jest --no-cache",
-    "test-watch": "cross-env NODE_ENV=test && jest --no-cache --watch",
+    "test": "cross-env NODE_ENV=production && jest --no-cache",
+    "test-watch": "cross-env NODE_ENV=production && jest --no-cache --watch",
     "coverage": "npm run test -- --coverage",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "docs:dev": "vuepress dev docs",
@@ -33,9 +33,11 @@
     "cross-env": "5.2.0",
     "del-cli": "1.1.0",
     "jest": "24.1.0",
+    "nuxt": "^2.6.3",
     "poi": "12.5.5",
-    "vue": "2.6.8",
-    "vue-template-compiler": "2.6.8",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6",
+    "vue-template-compiler": "^2.6.10",
     "vuepress": "0.14.9",
     "vuex": "3.1.0"
   }

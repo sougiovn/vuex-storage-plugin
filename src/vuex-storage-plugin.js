@@ -12,6 +12,7 @@ export default function VuexStoragePlugin(options = {}) {
   const watcherMap = new Map();
 
   return store => {
+    console.log('Instantiaing vuex-storage-plugin');
     store._registerModule = store.registerModule;
 
     buildPopulate(options.populate);

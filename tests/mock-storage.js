@@ -1,5 +1,4 @@
 export default class MockStorage {
-
   constructor() {
     this.storage = new Map();
   }
@@ -23,5 +22,6 @@ export default class MockStorage {
   keys() {
     return this.storage.keys();
   }
-
 }
+
+export const singletonMockStorage = new MockStorage();
