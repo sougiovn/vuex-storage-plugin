@@ -86,7 +86,7 @@ Using Objects you may use a different name to the attributes and mutations,
 you have to define the module's name you'r configuring and also you may define a `default` value 
 for the attribute when the plugin doesn't find it's value in the storage.
 
-#### Interface do objeto esperado
+#### Object's interface
 
 <<<@/docs/.vuepress/populate-item-interface.ts
 
@@ -96,6 +96,7 @@ for the attribute when the plugin doesn't find it's value in the storage.
 |attr|Attribute's name you want to persist|
 |mutation|Mutation's name to be observed*|
 |default|Value given for the attribute if it doesn't exist in the storage, the `default` is `null`|
+|storage|A storage just like the global configuration in the case you want to use a different storage for specific states|
 
 ::: warning Warning
 The value persisted in the storage is the parameter passed into the mutation's funciton.

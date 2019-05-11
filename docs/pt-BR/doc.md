@@ -95,6 +95,7 @@ para o atributo quando o plugin não encontrar o valor do atributo no storage.
 |attr|Nome do atributo que deseja persistir no storage|
 |mutation|Nome do mutation a ser observado para persistir na store*|
 |default|Valor a ser atribuído quando não existe valor no storage, o valor `default` é `null`|
+|storage|Um storage como na configuração global no caso de você querer usar um storage diferente para um state especifico|
 
 ::: warning Atenção
 É persistido no storage o valor passado como parâmetro para a mutation. 

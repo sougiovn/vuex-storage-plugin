@@ -23,5 +23,3 @@ export default class MockStorage {
     return this.storage.keys();
   }
 }
-
-export const singletonMockStorage = new MockStorage();

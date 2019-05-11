@@ -12,7 +12,6 @@ export default function VuexStoragePlugin(options = {}) {
   const watcherMap = new Map();
 
   return store => {
-    console.log('Instantiaing vuex-storage-plugin');
     store._registerModule = store.registerModule;
 
     buildPopulate(options.populate);
@@ -47,7 +46,7 @@ export default function VuexStoragePlugin(options = {}) {
       let current = keysIterator.next();
       while (current.done === false) {
         const item = watcherMap.get(current.value);
-        let value = storage.getItem(item.parsedKey);
+        let value = item.storage.getItem(item.parsedKey);
 
 
         try {
@@ -67,9 +66,9 @@ export default function VuexStoragePlugin(options = {}) {
       if (watcherMap.has(watchKey)) {
         const item = watcherMap.get(watchKey);
         if (payload == null && removeIfNull) {
-          storage.removeItem(item.parsedKey);
+          item.storage.removeItem(item.parsedKey);
         } else {
-          storage.setItem(item.parsedKey, stringify(payload));
+          item.storage.setItem(item.parsedKey, stringify(payload));
         }
       }
     }
@@ -93,7 +92,8 @@ export default function VuexStoragePlugin(options = {}) {
               module: moduleName,
               attr: item,
               mutation: item,
-              default: DEFAULT_VALUE
+              default: DEFAULT_VALUE,
+              storage
             };
           } else {
             if (moduleName) {
@@ -102,6 +102,10 @@ export default function VuexStoragePlugin(options = {}) {
 
             if (item.default == null) {
               item.default = DEFAULT_VALUE;
+            }
+
+            if (item.storage == null) {
+              item.storage = storage;
             }
           }
 

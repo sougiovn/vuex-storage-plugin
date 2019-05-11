@@ -1,6 +1,7 @@
 import VuexStoragePlugin from './../../src/vuex-storage-plugin';
 import { newStore, mockStorage } from './../utils';
 import { AttrEqualsMutationStoreConfig, CustomStateAttrAndMutationStoreConfig } from './../store-config';
+import MockStorage from '../mock-storage';
 
 
 describe('VuexStoragePlugin', () => {
@@ -15,9 +16,7 @@ describe('VuexStoragePlugin', () => {
   });
 
   describe('Plugin usage', () => {
-    beforeEach(() => {
-      mockStorage.clear();
-    });
+    beforeEach(() => mockStorage.clear());
 
     describe('Basic configuration', () => {
       it('should use same string to lookup for storage and mutation', () => {
@@ -105,6 +104,42 @@ describe('VuexStoragePlugin', () => {
 
         expect(store.state.attr).toBe('bacon');
       });
+
+      describe('Specific storage configuration', () => {
+        const specificStorage = new MockStorage();
+
+        beforeEach(() => specificStorage.clear());
+
+        it('should persist state in specific storage', () => {
+          const store = newStore(CustomStateAttrAndMutationStoreConfig, {
+            populate: [{
+              attr: 'attr',
+              mutation: 'setAttr',
+              storage: specificStorage
+            }]
+          });
+
+          store.commit('setAttr', 'bacon');
+
+          expect(mockStorage.getItem('vuex/attr')).toBeUndefined();
+          expect(specificStorage.getItem('vuex/attr')).toBe('bacon');
+        });
+
+        it('should load state from specific storage', () => {
+          specificStorage.setItem('vuex/attr', 'bacon is love');
+          mockStorage.setItem('vuex/attr', 'bacon');
+
+          const store = newStore(CustomStateAttrAndMutationStoreConfig, {
+            populate: [{
+              attr: 'attr',
+              mutation: 'setAttr',
+              storage: specificStorage
+            }]
+          });
+
+          expect(store.state.attr).toBe('bacon is love');
+        });
+      })
     });
 
     describe('RemoveIfNull configuration', () => {
