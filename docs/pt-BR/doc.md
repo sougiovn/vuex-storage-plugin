@@ -25,6 +25,13 @@ dinâmicos e não encontrei nada do tipo ou pelo menos a documentação não me 
 npm install --save vuex-storage-plugin
 ```
 
+
+## Nuxt
+
+<<<@/docs/.vuepress/nuxt.config.js
+
+<<<@/docs/.vuepress/vuex-storage-plugin.config.js
+
 ## Configuração
 
 
