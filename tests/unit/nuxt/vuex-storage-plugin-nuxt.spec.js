@@ -7,6 +7,7 @@ describe('VuexStoragePlugin in Nuxt', () => {
 
   beforeAll(done => {
     const config = {
+      mode: 'universal',
       dev: false,
       rootDir: resolve(__dirname, '..')
     };
