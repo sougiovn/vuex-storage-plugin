@@ -34,7 +34,8 @@
     "del-cli": "1.1.0",
     "jest": "24.1.0",
     "poi": "12.5.5",
-    "vue": "^2.6.10",
+    "vue": "2.6.8",
+    "vue-template-compiler": "2.6.8",
     "vuepress": "0.14.9",
     "vuex": "3.1.0"
   }
