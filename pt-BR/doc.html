@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Documentação | Vuex Storage Plugin</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/vuex-storage-plugin/assets/css/0.styles.430a61f2.css" as="style"><link rel="preload" href="/vuex-storage-plugin/assets/js/app.39ba4cb9.js" as="script"><link rel="preload" href="/vuex-storage-plugin/assets/js/10.1ec7ee51.js" as="script"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/11.31a50b8e.js"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/2.f6ebfaf2.js"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/3.656b4936.js"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/4.a75006de.js"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/5.280bf0d4.js"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/6.54d325ac.js"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/7.7fcc7206.js"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/8.4aa15dcb.js"><link rel="prefetch" href="/vuex-storage-plugin/assets/js/9.69cba67a.js">
+    <link rel="stylesheet" href="/vuex-storage-plugin/assets/css/0.styles.430a61f2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuex-storage-plugin/" class="home-link router-link-active"><!----> <span class="site-name">Vuex Storage Plugin</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex-storage-plugin/pt-BR/doc.html" class="nav-link router-link-exact-active router-link-active">Doc</a></div><div class="nav-item"><a href="/vuex-storage-plugin/pt-BR/demo.html" class="nav-link">Demo</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuex-storage-plugin/" class="nav-link">English</a></li><li class="dropdown-item"><!----> <a href="/vuex-storage-plugin/pt-BR/" class="nav-link router-link-active">Português brasileiro</a></li></ul></div></div> <a href="https://github.com/gigioSouza/vuex-storage-plugin" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex-storage-plugin/pt-BR/doc.html" class="nav-link router-link-exact-active router-link-active">Doc</a></div><div class="nav-item"><a href="/vuex-storage-plugin/pt-BR/demo.html" class="nav-link">Demo</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuex-storage-plugin/" class="nav-link">English</a></li><li class="dropdown-item"><!----> <a href="/vuex-storage-plugin/pt-BR/" class="nav-link router-link-active">Português brasileiro</a></li></ul></div></div> <a href="https://github.com/gigioSouza/vuex-storage-plugin" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>Documentação</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/vuex-storage-plugin/pt-BR/doc.html#que-e-vuex-storage-plugin-e-por-que" class="sidebar-link">Que é Vuex Storage Plugin e por quê?</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex-storage-plugin/pt-BR/doc.html#o-que-e" class="sidebar-link">O que é?</a></li><li class="sidebar-sub-header"><a href="/vuex-storage-plugin/pt-BR/doc.html#por-que" class="sidebar-link">Por que?</a></li></ul></li><li><a href="/vuex-storage-plugin/pt-BR/doc.html#instalacao" class="sidebar-link">Instalação</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuex-storage-plugin/pt-BR/doc.html#nuxt" class="sidebar-link">Nuxt</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuex-storage-plugin/pt-BR/doc.html#configuracao" class="sidebar-link">Configuração</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuex-storage-plugin/pt-BR/doc.html#storage" class="sidebar-link">storage</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/vuex-storage-plugin/pt-BR/doc.html#populate" class="sidebar-link">populate</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex-storage-plugin/pt-BR/doc.html#usando-strings" class="sidebar-link">Usando Strings</a></li><li class="sidebar-sub-header"><a href="/vuex-storage-plugin/pt-BR/doc.html#usando-objetos" class="sidebar-link">Usando Objetos</a></li></ul></li><li><a href="/vuex-storage-plugin/pt-BR/doc.html#afterpopulate" class="sidebar-link">afterPopulate</a><ul class="sidebar-sub-headers"></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h2 id="que-e-vuex-storage-plugin-e-por-que"><a href="#que-e-vuex-storage-plugin-e-por-que" aria-hidden="true" class="header-anchor">#</a> Que é Vuex Storage Plugin e por quê?</h2> <h3 id="o-que-e"><a href="#o-que-e" aria-hidden="true" class="header-anchor">#</a> O que é?</h3> <p>Vuex Storage Plugin é um plugin para Vuex para persistir dados de sua store no localStorage,
+sessionStorage e etc. Ele oferece a configuração convencional na criação do <code>Vuex.Store</code> para o rootState
+e módulos estáticos, mas também oferece configuração para módulos dinâmicos.</p> <h3 id="por-que"><a href="#por-que" aria-hidden="true" class="header-anchor">#</a> Por que?</h3> <p>Quando precisei armazenar alguns dados da minha store no
+sessionStorage não encontrei nenhum plugin simples de usar, fácil de aprender e que se
+encaixa-se à minha aplicação sem grandes alterações.
+Precisava que o plugin armazena-se apenas alguns atributos de módulos<br>
+dinâmicos e não encontrei nada do tipo ou pelo menos a documentação não me ajudou muito.</p> <h2 id="instalacao"><a href="#instalacao" aria-hidden="true" class="header-anchor">#</a> Instalação</h2> <div class="language- extra-class"><pre class="language-text"><code>npm install --save vuex-storage-plugin
+</code></pre></div><h2 id="nuxt"><a href="#nuxt" aria-hidden="true" class="header-anchor">#</a> Nuxt</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// nuxt.config.js</span>
+
+<span class="token operator">...</span>
+plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> src<span class="token punctuation">:</span> <span class="token string">'~/plugins/vuex-storage-plugin.config.js'</span><span class="token punctuation">,</span> ssr<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token operator">...</span></code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// ~/plugins/vuex-storage-plugin.config.js</span>
+
+<span class="token keyword">import</span> VuexStoragePlugin <span class="token keyword">from</span> <span class="token string">'vuex-storage-plugin'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  window<span class="token punctuation">.</span><span class="token function">onNuxtReady</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">VuexStoragePlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div><h2 id="configuracao"><a href="#configuracao" aria-hidden="true" class="header-anchor">#</a> Configuração</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> VuexStoragePlugin <span class="token keyword">from</span> <span class="token string">'vuex-storage-plugin'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// rootState and static modules configuration</span>
+<span class="token keyword">const</span> vuexStoragePluginConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  prefix<span class="token punctuation">:</span> <span class="token string">'vuex'</span><span class="token punctuation">,</span>
+  storage<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  removeIfNull<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  populate<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  afterPopulate<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">VuexStoragePlugin</span><span class="token punctuation">(</span>vuexStoragePluginConfig<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">// dynamic modules configuration</span>
+store<span class="token punctuation">.</span><span class="token function">registerModule</span><span class="token punctuation">(</span><span class="token string">'DynamicModule'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span><span class="token punctuation">,</span>
+  populate<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  afterPopulate<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><table><thead><tr><th>Atributo</th> <th>Tipo</th> <th>Descrição</th></tr></thead> <tbody><tr><td>prefix</td> <td>String, default <code>'vuex'</code></td> <td>Prefixo usado na chave do storage, exemplo: <code>&quot;vuex/myAttr&quot;</code></td></tr> <tr><td><a href="#storage">storage</a></td> <td><a href="https://developer.mozilla.org/pt-BR/docs/Web/API/Storage" target="_blank" rel="noopener noreferrer">Storage<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></td> <td>API usada para persistir o estado da aplicação</td></tr> <tr><td>removeIfNull</td> <td>Boolean, default <code>true</code></td> <td>Indica se o plugin deve remover o valor do storage ou salvar <code>null</code></td></tr> <tr><td><a href="#populate">populate</a></td> <td>Array de String e/ou <a href="#populate-object">Object</a></td> <td>Indica os módulos, atributos e mutations que devem ser persistidos</td></tr> <tr><td><a href="#after-populate">afterPopulate</a></td> <td>Function</td> <td>Hook chamado logo após o estado root ou do módulo ser carregado na store</td></tr></tbody></table> <h2 id="storage"><a href="#storage" aria-hidden="true" class="header-anchor">#</a> storage</h2> <p>Seguindo a interface de <a href>Web Storage API</a>, como localStorage ou sessionStorage.<br>
+Os métodos necessários para o plugin são os seguintes:</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">interface</span> <span class="token class-name">Storage</span> <span class="token punctuation">{</span>
+  <span class="token function">getItem</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token builtin">string</span>
+  <span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> value<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span>
+  <span class="token function">removeItem</span><span class="token punctuation">(</span>key<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div><div class="tip custom-block"><p class="custom-block-title">Dica</p> <p>Caso queira criar seu Storage personalizado ou fazer um wrapper para uma lib como <a href="https://www.npmjs.com/package/js-cookie" target="_blank" rel="noopener noreferrer">js-cookie<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> você só precisa implementar os métodos acima, exemplo:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> Cookies <span class="token keyword">from</span> <span class="token string">'js-cookie'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> CookiesWrapper <span class="token operator">=</span> <span class="token punctuation">{</span>
+  setItem<span class="token punctuation">:</span> Cookies<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">,</span>
+  getItem<span class="token punctuation">:</span> Cookies<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">,</span>
+  removeItem<span class="token punctuation">:</span> Cookies<span class="token punctuation">.</span>remove
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div></div> <h2 id="populate"><a href="#populate" aria-hidden="true" class="header-anchor">#</a> populate</h2> <p>O atributo populate é onde você indicará quais os atributos devem ser persistidos no storage e
+populados do storage na criação do <code>Vuex.Store</code> ou no registro de um módulo dinâmico.</p> <p>Há duas maneiras de se configurar este atributo:</p> <ol><li>Usando Strings que representam o nome dos atributos e das mutations usadas para atualizar seus valores</li> <li>Usando Objetos complexos</li></ol> <h3 id="usando-strings"><a href="#usando-strings" aria-hidden="true" class="header-anchor">#</a> Usando Strings</h3> <p>Quando usando String entendesse que foi usado o mesmo nome do atributo à
+mutation responsável por sua atualização.</p> <p>Usando estado estático:</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> VuexStoragePlugin <span class="token keyword">from</span> <span class="token string">'vuex-storage-plugin'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> vuexStoragePluginConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  storage<span class="token punctuation">:</span> localStorage<span class="token punctuation">,</span>
+  populate<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'attr'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">VuexStoragePlugin</span><span class="token punctuation">(</span>vuexStoragePluginConfig<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      attr<span class="token punctuation">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>attr <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">...</span>
+
+store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'attr'</span><span class="token punctuation">,</span> <span class="token string">'attrs new value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Usando módulo dinâmico:</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> VuexStoragePlugin <span class="token keyword">from</span> <span class="token string">'vuex-storage-plugin'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> vuexStoragePluginConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  storage<span class="token punctuation">:</span> localStorage
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">VuexStoragePlugin</span><span class="token punctuation">(</span>vuexStoragePluginConfig<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">...</span>
+
+<span class="token comment">// unnamespaced module</span>
+store<span class="token punctuation">.</span><span class="token function">registerModule</span><span class="token punctuation">(</span><span class="token string">'UnnamedModule'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      attr<span class="token punctuation">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>attr <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  populate<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'attr'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'attr'</span><span class="token punctuation">,</span> <span class="token string">'unnamed attrs new value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// namespaced module</span>
+store<span class="token punctuation">.</span><span class="token function">registerModule</span><span class="token punctuation">(</span><span class="token string">'NamedModule'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  namespaced<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      attr<span class="token punctuation">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">attr</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>attr <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  populate<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'attr'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'NamedModule/attr'</span><span class="token punctuation">,</span> <span class="token string">'named attrs new value'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">Atenção</p> <p>Configuração como String funciona apenas para o state raíz da store e módulos dinâmicos.<br>
+Para módulos estáticos é necessário configuração do nome do módulo junto aos nomes
+do atributo e mutation.</p></div> <h3 id="usando-objetos"><a href="#usando-objetos" aria-hidden="true" class="header-anchor">#</a> Usando Objetos</h3> <p>Usando Objetos permite que você use atributos e mutations com nomes diferentes,
+o nome do módulo sendo configurado e também permite que você defina um valor <code>default</code>
+para o atributo quando o plugin não encontrar o valor do atributo no storage.</p> <h4 id="interface-do-objeto-esperado"><a href="#interface-do-objeto-esperado" aria-hidden="true" class="header-anchor">#</a> Interface do objeto esperado</h4> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">interface</span> <span class="token class-name">PopulateItem</span> <span class="token punctuation">{</span>
+  <span class="token keyword">module</span><span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  attr<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  mutation<span class="token punctuation">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+  <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token builtin">any</span>
+<span class="token punctuation">}</span></code></pre></div><table><thead><tr><th>Atributo</th> <th>Descrição</th></tr></thead> <tbody><tr><td>module</td> <td>Nome do módulo da configuração. Não importa se é nomeado ou não, se não for dinâmico tem de colocar o módulo</td></tr> <tr><td>attr</td> <td>Nome do atributo que deseja persistir no storage</td></tr> <tr><td>mutation</td> <td>Nome do mutation a ser observado para persistir na store*</td></tr> <tr><td>default</td> <td>Valor a ser atribuído quando não existe valor no storage, o valor <code>default</code> é <code>null</code></td></tr> <tr><td>storage</td> <td>Um storage como na configuração global no caso de você querer usar um storage diferente para um state especifico</td></tr></tbody></table> <div class="warning custom-block"><p class="custom-block-title">Atenção</p> <p>É persistido no storage o valor passado como parâmetro para a mutation.
+Caso o valor seja &quot;processado&quot; dentro da mutation, isso não é visível para o plugin.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><div class="highlighted"> </div></div><pre class="language-js"><code><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> VuexStoragePlugin <span class="token keyword">from</span> <span class="token string">'vuex-storage-plugin'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> vuexStoragePluginConfig <span class="token operator">=</span> <span class="token punctuation">{</span>
+  populate<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    attr<span class="token punctuation">:</span> <span class="token string">'attr'</span><span class="token punctuation">,</span>
+    mutation<span class="token punctuation">:</span> <span class="token string">'setAttr'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">VuexStoragePlugin</span><span class="token punctuation">(</span>vuexStoragePluginConfig<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      attr<span class="token punctuation">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">setAttr</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> payload<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>attr <span class="token operator">=</span> <span class="token template-string"><span class="token string">`bacon is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>payload<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'setAttr'</span><span class="token punctuation">,</span> <span class="token string">'love'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div><p>O valor persistido será <code>&quot;love&quot;</code>, não <code>&quot;bacon is love&quot;</code></p></div> <h2 id="afterpopulate"><a href="#afterpopulate" aria-hidden="true" class="header-anchor">#</a> afterPopulate</h2> <p>Caso você deseje realizar alguma lógica após receber os dados do storage,
+o <code>afterPopulate</code> tem a proposta de ser um <code>hook</code> chamado após os dados serem restaurados do storage e
+inseridos no store.</p> <p>Existem duas assinaturas de método para esse <code>hook</code>:</p> <ol><li>Estático raíz e módulos dinâmicos não nomeados, executado após criação da store raíz</li> <li>Módulo dinâmico e nomeado, executado ao registrar um novo módulo</li></ol> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">function</span><span class="token punctuation">(</span>rootStore<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// static and unnamed modules</span>
+<span class="token keyword">function</span><span class="token punctuation">(</span>moduleStore<span class="token punctuation">,</span> rootStore<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// dynamic modules</span></code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/vuex-storage-plugin/assets/js/app.39ba4cb9.js" defer></script><script src="/vuex-storage-plugin/assets/js/10.1ec7ee51.js" defer></script>
+  </body>
+</html>
