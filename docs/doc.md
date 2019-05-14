@@ -27,6 +27,12 @@ none of the kind or at least the documentation didn't help a lot.
 npm install --save vuex-storage-plugin
 ```
 
+## Nuxt
+
+<<<@/docs/.vuepress/nuxt.config.js
+
+<<<@/docs/.vuepress/vuex-storage-plugin.config.js
+
 ## Configuration
 
 <<<@/docs/.vuepress/plugin-instalation.js
