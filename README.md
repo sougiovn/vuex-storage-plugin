@@ -2,4 +2,4 @@
 
 Vuex Plugin to easily persist data into localStorage, sessionStorage and etc.
 
-[https://gigiosouza.github.io/vuex-storage-plugin](https://gigiosouza.github.io/vuex-storage-plugin)
+[https://sougiovn.github.io/vuex-storage-plugin](https://sougiovn.github.io/vuex-storage-plugin)
